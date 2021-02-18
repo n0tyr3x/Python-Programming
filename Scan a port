@@ -1,0 +1,18 @@
+import socket
+
+host = str(raw_input("Enter the host: "))
+ip = socket.gethostbyname(host)
+
+print ip
+
+while 1:
+	port = int(raw_input("Enter the port:"))
+
+	try:
+		sock = socket.socket()
+		res = sock.connect((ip,port))
+		print "port {}: Open" .format(port)
+		sock.close
+	except:
+		print "Port {}: Closed" .format(port)
+	print "Complete"
